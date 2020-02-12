@@ -1,0 +1,46 @@
+{{import_globals}}
+<div class="media-inner component-inner">
+    {{> component this}}
+    <div class="media-widget component-widget a11y-ignore-aria">
+    {{#if _media.mp3}}
+        {{#if _media.poster}}
+            <img src="{{_media.poster}}" class="audio-poster" {{#if _media.alt}}alt="{{_media.alt}}" {{else}}alt=" "{{/if}}/>
+        {{/if}}
+        <audio src="{{_media.mp3}}" type="audio/mp3" style="width: 100%; height: 100%;"/>
+    {{else}}
+        {{#if _media.ogg}}
+            <audio src="{{_media.ogg}}" type="audio/ogg" style="width: 100%; height: 100%;"/>
+        {{else}}
+            {{#if _media.source}}
+                <div class="external-source" data-plyr-provider="{{_media.type}}" data-plyr-embed-id="{{_media.source}}"></div>
+            {{else}}
+            <video aria-hidden="true" preload="none" width="640" height="360" {{#if _playsinline}}playsinline{{/if}} {{#if_value_equals _media.type "video/vimeo"}}{{else}}poster="{{_media.poster}}"{{/if_value_equals}} style="width:100%; height:100%;" controls="controls">
+
+                {{#if _media.mp4}}
+                    <source src="{{_media.mp4}}" type="video/mp4"/>
+                {{/if}}
+                {{#if _media.ogv}}
+                    <source src="{{_media.ogv}}" type="video/ogg"/>
+                {{/if}}
+                {{#if _media.webm}}
+                    <source src="{{_media.webm}}" type="video/webm"/>
+                {{/if}}
+            {{/if}}
+            {{#if _useClosedCaptions}}
+            
+                {{#each _media.cc}}
+                    <track kind="subtitles" src="{{src}}" type="text/vtt" srclang="{{srclang}}" label="{{captionLabel}}" default=true/>
+                    {{#if descSrc}}
+                        <track kind="descriptions" src="{{descSrc}}" type="text/vtt" srclang="{{srclang}}" label="{{descLabel}}" default=true />
+                    {{/if}}
+                {{/each}}
+            {{/if}}
+            </video>
+        {{/if}}
+    {{/if}}
+    </div>
+    <div class="sr-helper" aria-live="polite"></div>
+    <!-- ACCESSIBILITY HELPER -->
+    {{!-- <output style="position:fixed;left:-9999px;" id="audioDesc" aria-live="polite">&nbsp;</output> --}}
+    <output id="audioDesc-{{_id}}" class="audioDesc" aria-live="polite">&nbsp;</output>
+</div>

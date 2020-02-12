@@ -1,1 +1,1 @@
-# adapt-plyr
+# adapt-media-plyr

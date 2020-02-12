@@ -1,0 +1,21 @@
+{
+  "name": "adapt-media-plyr",
+  "version": "0.0.1",
+  "framework": ">=3.3",
+  "homepage": "https://github.com/Laerdal/adapt-media-plyr",
+  "issues": "https://github.com/adaptlearning/adapt_framework/issues/new",
+  "displayName": "Media - Plyr",
+  "component": "media-plyr",
+  "assetFields" : [
+    "_media.ogv",
+    "_media.mp4",
+    "_media.poster"
+  ],
+  "description": "Playback of video and audio using Plyr.io",
+  "main": "/js/adapt-media-plyr.js",
+  "keywords": [
+    "adapt-plugin",
+    "adapt-component"
+  ],
+  "license": "GPLv3"
+}
