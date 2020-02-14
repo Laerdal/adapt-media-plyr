@@ -8,7 +8,7 @@
 				path = pathWhenBuilt ? pathWhenBuilt : path;
 				
 				var plyrOptions = {
-					hideControls: false,
+					hideControls: true,
 					tooltips:{
 						controls:true
 					},

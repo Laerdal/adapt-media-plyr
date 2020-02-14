@@ -66,7 +66,7 @@ define([
 
             if (modelOptions.pluginPath === undefined) modelOptions.pluginPath = 'assets/';
             if(modelOptions.features === undefined) {
-                modelOptions.features = ['play','progress','current-time','duration'];
+                modelOptions.features = ['play-large','play','progress','current-time','duration'];
                 if (this.model.get('_useClosedCaptions')) {
                     modelOptions.features.unshift('captions');
                 }
